@@ -13,31 +13,36 @@ function añadir() {
 function doañadir(textoDeContenido) {
 	var place = document.getElementById("place");
 	var content = '<div class="box">' +
-    '<div class="check" id="check"><input type="checkbox" onclick="marcarTexto(this)">' +  textoDeContenido  +'<i class="glyphicon glyphicon-trash"></i>' +
-    '</div>';
-
+    '<div class="check" id="check"><input type="checkbox"> <p id="tachado">' +  
+    textoDeContenido +'</p> <i id="icono" class="glyphicon glyphicon-trash"></i>' +
+    '</div>' + '</div>';
+	content.onchange = function() {
+		if(this.checked){
+			tachado.innerHTML = textoDeContenido.strike();
+		}else {
+			tachado.innerHTML = textoDeContenido;
+		}
+	var tachado = document.getElementById("tachado");
+	tachado.innerHTML= textoDeContenido;
+	}
 	//Crear el elemento
+	
 	var elemento = document.createElement("div");
 	elemento.className = "añadir";
 	elemento.innerHTML = content;
 
 	//Agregar elementos
 	place.appendChild(elemento);
+	var icono = document.getElementById("icono");
+	var ex = place.lastChild;
+	icono.onclick = function(){
+		alert("Seguro deseas eliminar lo escrito?");
+		place.removeChild(elemento);
+	}
+	
 }
-
-
 function clean() {
 	var texto = document.getElementById("texto");
 	texto.value = "";
 	texto.focus();
-}
-function marcarTexto(elemento){
-	var marcado = elemento.checked;
-	var textoPorMarcar = elemento.nextSibling;
-	if(marcado==true){
-		textoPorMarcar.classlist.add("tachado");
-	}else {
-		textoPorMarcar.classlist.remove("tachado");
-	}
-	
 }
