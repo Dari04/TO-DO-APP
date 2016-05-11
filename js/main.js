@@ -13,7 +13,7 @@ function añadir() {
 function doañadir(textoDeContenido) {
 	var place = document.getElementById("place");
 	var content = '<div class="box">' +
-    '<div class="check"><input type="checkbox">' +  textoDeContenido  +'</input><i class="glyphicon glyphicon-trash"></i>' +
+    '<div class="check" id="check"><input type="checkbox" onclick="marcarTexto(this)">' +  textoDeContenido  +'<i class="glyphicon glyphicon-trash"></i>' +
     '</div>';
 
 	//Crear el elemento
@@ -24,12 +24,20 @@ function doañadir(textoDeContenido) {
 	//Agregar elementos
 	place.appendChild(elemento);
 }
-function remover(textoDeContenido){
-	
-}
+
 
 function clean() {
 	var texto = document.getElementById("texto");
 	texto.value = "";
 	texto.focus();
+}
+function marcarTexto(elemento){
+	var marcado = elemento.checked;
+	var textoPorMarcar = elemento.nextSibling;
+	if(marcado==true){
+		textoPorMarcar.classlist.add("tachado");
+	}else {
+		textoPorMarcar.classlist.remove("tachado");
+	}
+	
 }
