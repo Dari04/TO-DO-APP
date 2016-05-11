@@ -13,8 +13,8 @@ function añadir() {
 function doañadir(textoDeContenido) {
 	var place = document.getElementById("place");
 	var content = '<div class="box">' +
-    '<div class="check" id="check"><input type="checkbox"> <p id="tachado">' +  
-    textoDeContenido +'</p> <i id="icono" class="glyphicon glyphicon-trash"></i>' +
+    '<div class="check" id="check"><input type="checkbox">' +  
+    textoDeContenido +'<i id="icono" class="glyphicon glyphicon-trash"></i>' +
     '</div>' + '</div>';
 	content.onchange = function() {
 		if(this.checked){

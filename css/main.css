@@ -29,6 +29,7 @@ textarea{
 .glyphicon-trash{
     float:right;
     margin-right: 10px;
+    margin-top: 5px;
 }
 .box{
     height: 40px;
