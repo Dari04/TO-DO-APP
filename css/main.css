@@ -4,14 +4,15 @@ body{
 .cabecera{
     width:100%;
     height: 50px;
-    background-color:#E0E0E0;
+    background: turquoise;
     border-top:#888888;
 }
-h4{
+h3{
     text-align: center;
     text-shadow: 1px 1px grey;
-    margin-top:0;
+    margin-top: 0;
     padding-top: 14px;
+    font-family: IMPACT;
 }
 textarea{
     width: 100%;
@@ -22,6 +23,13 @@ textarea{
 .btn{
     border-radius: 3px;
     margin-bottom: 12px;
+    background-color: pink;
+    border-color: #D42978;
+}
+.btn:hover{
+    background-color:#ffffff;
+    color: #D42978;
+    border-color:grey;
 }
 .glyphicon-plus{
     margin-right: 5px;
@@ -41,4 +49,7 @@ textarea{
     position: relative;
     top: 7px;
     margin-left: 5px;
+}
+.tachado {
+    text-decoration: line-through;
 }

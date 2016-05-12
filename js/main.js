@@ -13,18 +13,10 @@ function añadir() {
 function doañadir(textoDeContenido) {
 	var place = document.getElementById("place");
 	var content = '<div class="box">' +
-    '<div class="check" id="check"><input type="checkbox">' +  
-    textoDeContenido +'<i id="icono" class="glyphicon glyphicon-trash"></i>' +
+    '<div class="check"><input type="checkbox" onclick="tachar(this)">' +  
+    textoDeContenido +'<i class="glyphicon glyphicon-trash" onclick="remover(this)"></i>' +
     '</div>' + '</div>';
-	content.onchange = function() {
-		if(this.checked){
-			tachado.innerHTML = textoDeContenido.strike();
-		}else {
-			tachado.innerHTML = textoDeContenido;
-		}
-	var tachado = document.getElementById("tachado");
-	tachado.innerHTML= textoDeContenido;
-	}
+	
 	//Crear el elemento
 	
 	var elemento = document.createElement("div");
@@ -33,16 +25,25 @@ function doañadir(textoDeContenido) {
 
 	//Agregar elementos
 	place.appendChild(elemento);
-	var icono = document.getElementById("icono");
-	var ex = place.lastChild;
-	icono.onclick = function(){
-		alert("Seguro deseas eliminar lo escrito?");
-		place.removeChild(elemento);
-	}
+
 	
 }
 function clean() {
 	var texto = document.getElementById("texto");
 	texto.value = "";
 	texto.focus();
+}
+
+function tachar(checkbox) {
+	var parent = checkbox.parentElement;
+	if(checkbox.checked){
+		parent.classList.add("tachado");
+	}else {
+		parent.classList.remove("tachado");
+	}
+
+}
+function remover(glyphicon) {
+	var parent = glyphicon.parentElement.parentElement;
+	parent.remove();
 }
